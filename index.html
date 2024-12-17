@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Email Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Вас вітає SCANMAIL</h1>
+        </header>
+        <main>
+            <form id="scan-form" action="/scan" method="POST">
+                <div class="form-group">
+                    <label for="Email">Пошта:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="scan-interval">Інтервал сканування:</label>
+                    <select id="scan-interval" name="scan_interval">
+                        <option value="once">Один раз</option>
+                        <option value="15">Кожні 15 звилин</option>
+                        <option value="30">Кожні 30 хвилин</option>
+                        <option value="60">Кожну годину</option>
+                    </select>
+                </div>
+                <button type="submit">Почати сканування</button>
+            </form>
+            <div id="progress-container" style="display: none;">
+                <label for="progress-bar">Прогрес сканування:</label>
+                <progress id="progress-bar" value="0" max="100"></progress>
+                <p id="progress-text">0%</p>
+            </div>
+            <div id="results-container" style="display: none;">
+                <h2>Шкідливі листи та посилання</h2>
+                <ul id="results-list"></ul>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
